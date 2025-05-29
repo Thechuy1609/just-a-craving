@@ -1,3 +1,24 @@
-<div data-controller="hello">
-  Open your browser console to see Stimulus output.
+<div data-controller="dropdown" class="bg-white flex items-center justify-between px-4 py-3 h-34 border-gray-200 border-b-2"> 
+  <div class="relative mx-8">
+    <%= link_to "#", class: "flex items-center space-x-2 font-semibold text-3xl", data: { action: "click->dropdown#toggle click@window->dropdown#hide touchend@window->dropdown#hide",
+    dropdown_target: "button" } do %>
+      <i class="fa-solid fa-bars"></i>
+    <% end %>
+
+    <div data-dropdown-target="menu" class="hidden absolute top-full mt-2 text-xl h-36 w-56 rounded-md bg-white shadow-lg ring-1 ring-black/5 z-20">
+      <div class="py-1">
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Menu</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Locations</a>
+        <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 ">Contact Us</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute left-1/2 transform -translate-x-1/2">
+    <%= image_tag "justacraving-logo.png", alt: "Logo", class: "h-30" %>
+  </div>
+
+  <div class="z-10">
+    <%= link_to "Sign in", "#", class: "mx-8 font-semibold text-xl" %>
+  </div>
 </div>
