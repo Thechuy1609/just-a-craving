@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :home
+devise_for :admins
+resources :home
 resources :products
+resources :locations
   root "home#index"
 end
