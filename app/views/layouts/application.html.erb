@@ -9,45 +9,19 @@
     <%= csp_meta_tag %>
 
     <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon32x32.png">
     <link rel="apple-touch-icon" href="/icon.png">
     <link rel="apple-touch-icon" href="/icon.png">
-
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" , integrity:"sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" ,crossorigin:"anonymous" ,referrerpolicy:"no-referrer" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
- <body>
-  <div data-controller="dropdown" class="bg-white flex items-center justify-between px-4 py-3 h-34 border-gray-200 border-b-2"> 
-    <div class="relative mx-8">
-      <%= link_to "#", class: "flex items-center space-x-2 font-semibold text-3xl", data: { action: "click->dropdown#toggle click@window->dropdown#hide touchend@window->dropdown#hide",
-      dropdown_target: "button" }, active:"false" do %>
-        <i class="fa-solid fa-bars"></i>
-      <% end %>
-      <div data-dropdown-target="menu" class="hidden absolute top-full mt-1 text-xl h-46 w-56 rounded-md bg-white shadow-lg ring-1 ring-black/5 z-20">
-        <div class="py-1">
-      <%= link_to "Home", root_path, class: "block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100" %>
-      <%= link_to "Menu", products_path, class: "block px-4 font-semibold  py-2 text-gray-700 hover:bg-gray-100" %>
-      <%= link_to "Locations", locations_path, class: "block font-semibold px-4 py-2 text-gray-700 hover:bg-gray-100" %>
-      <%= link_to "Contact Us", "#", class: "block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100" %>
-        </div>
-      </div>
+<body>
+   <div class="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-lime-50">
+      <%= render "layouts/navbar" %>
+      <%= render "layouts/flash_messages" %>
+      <%= yield %>
     </div>
-  <div class="absolute left-1/2 transform -translate-x-1/2">
-    <%= link_to root_path do %>
-      <%= image_tag "justacraving-logo.png", alt: "Logo", class: "h-30" %>
-    <% end %>
-  </div>
-  <div class="z-10">
-    <%= link_to "Sign in", new_admin_session_path, class: "mx-8 font-semibold text-xl" %>
-  </div>
-</div>
-    <%= yield %>
   </body>
 </html>
