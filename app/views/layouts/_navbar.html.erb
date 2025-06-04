@@ -1,4 +1,4 @@
-  <div data-controller="dropdown" class="bg-white flex items-center justify-between px-4 py-3 h-34 border-gray-200 border-b-2"> 
+  <div data-controller="dropdown" class="bg-white flex items-center justify-between px-4 py-3 h-34 border-gray-200 shadow-lg border-b"> 
     <div class="relative mx-8">
       <%= link_to "#", class: "flex items-center space-x-2 font-semibold text-3xl", data: { action: "click->dropdown#toggle click@window->dropdown#hide touchend@window->dropdown#hide",
       dropdown_target: "button" }, active:"false" do %>
@@ -25,7 +25,7 @@
     </div>
   <div class="absolute left-1/2 transform -translate-x-1/2">
     <%= link_to root_path do %>
-      <%= image_tag "justacraving-logo.png", alt: "Logo", class: "h-30" %>
+      <%= image_tag "justacraving-logo.png", alt: "Logo", class: "h-20 md:h-30" %>
     <% end %>
   </div>
    <%if admin_signed_in?%>

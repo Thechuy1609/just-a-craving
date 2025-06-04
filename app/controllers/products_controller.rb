@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :find_product, only: %i[edit show]
+  before_action :find_product, except: %i[index new create]
   def index
     @products = Product.all
   end
@@ -35,13 +35,14 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+    flash[:notice] = "Product deleted succesfully."
     redirect_to products_path
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:title, :ingredients)
+    params.require(:product).permit(:title, :ingredients, :category, :product_picture)
   end
 
   def find_product
