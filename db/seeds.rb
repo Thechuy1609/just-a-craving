@@ -11,3 +11,7 @@ Admin.find_or_create_by!(email: "madeleinechuy@gmail.com") do |admin|
   admin.password = "abcdefg123"
   admin.password_confirmation = "abcdefg123"
 end
+
+Location.find_or_create_by!(title: "Just-A-CravingStore") do |l|
+  l.place_id = "ChIJU8J-ePH1UocRSIwct8Fq8UM"
+end

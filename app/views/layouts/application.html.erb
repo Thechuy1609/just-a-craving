@@ -17,12 +17,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
- <body>
-   <div class="bg-gradient-to-b from-gray-50/60 to-white">
-      <%= render "layouts/navbar" %>
-      <%= render "layouts/flash_messages" %>
+  <body class="min-h-screen flex flex-col bg-gradient-to-b from-gray-50/60 to-white">
+    <%= render "layouts/navbar" %>
+    <%= render "layouts/flash_messages" %>
+    <main class="flex-1">
       <%= yield %>
-      <%= render "layouts/footer" %>
-    </div>
+    </main>
+    <%= render "layouts/footer" %>
   </body>
 </html>

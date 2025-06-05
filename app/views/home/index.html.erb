@@ -14,3 +14,69 @@
         </div>
     </div>
 </div>
+
+<div class="max-w-5xl mx-auto px-6 lg:px-8 py-16">
+<h2 class="text-4xl font-bold text-center text-gray-900 mb-12">
+  Some reviews from our <span class="text-red-500">Cravers!</span>
+</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <% @reviews.each_with_index do |review, index| %>
+        <% next if index == 1 %>
+        <div class="flex flex-col bg-white rounded-2xl shadow p-6 border border-gray-100">
+          <div class="flex items-center space-x-4 mb-4">
+            <% if review.author.avatar.present? %>
+              <img src="<%= review.author.avatar %>" alt="<%= review.author.name %>'s avatar" class="w-12 h-12 rounded-full object-cover bg-gray-100">
+            <% else %>
+              <div class="w-12 h-12 rounded-full bg-gray-200"></div>
+            <% end %>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900"><%= review.author.name %></h3>
+              <p class="text-xs text-gray-500"><%= review.relative_time %></p>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-1 text-yellow-400 mb-2">
+            <% 5.times do |i| %>
+              <i class="fa-solid fa-star"></i>
+            <% end %>
+          </div>
+          <p class="text-sm text-gray-500 ml-0.5 font-medium"><%= review.rating %> out of 5 stars</p>
+          <p class="text-gray-700 text-sm mt-3">
+            <%= review.content %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+</div>
+
+<div class="relative">
+  <div class="absolute inset-0">
+    <%= image_tag "ourstory.png", class: "size-full object-cover" %>
+    <div class="absolute inset-0 bg-gray-900/40 backdrop-blur-sm"></div>
+  </div>
+
+  <div class="relative flex items-center justify-center min-h-[700px] px-6 sm:px-12 lg:px-16">
+    <div class="flex items-center justify-center gap-6 w-full max-w-7xl">
+      
+      <%= link_to "https://voyageutah.com/interview/inspiring-conversations-with-madeleine-elizabeth-chuy-allende-of-just-a-craving/?fbclid=IwQ0xDSwKtempleHRuA2FlbQIxMQABHuRQnteJMeVScT1_pVtB_cWNxVj6VXh-e18qMJXsC251uMW31Sb8qbyiR-Xe_aem_eqL5jFwYfAarE83Ex37lpQ", target: "_blank" do %>
+        <%= image_tag "news2.png", class: "w-70 rounded-lg shadow-lg hidden lg:block" %>
+      <% end %>
+
+      <div class="text-center mt-12 max-w-3xl bg-gray-600/20 rounded-lg">
+        <div class="mx-3 my-3">
+          <h2 class="mt-3 text-4xl font-bold text-amber-300">Our Story</h2>
+          <p class="mt-6 text-md text-gray-50 max-w-2xl">
+          We are a Utah local business. We started in Bountiful with a Food Truck, selling food cravings such as Philly Cheese Steaks, Soups, Tamales, and so much more. We started in the Fall, but when the Winter hit, we realized it was very hard to stay warm. So we started thinking about cravings for the Summer. We wanted something different, delicious, & refreshing. Presentation, flavor and quality  has always been our main focus. As a result, My partner and I, thought about what we and our families enjoy the most in the summer, and that was Shaved ice.
+          We transformed our food truck to a shaved ice shack, and created our shaved ice special cravings, we decided to move to Salt Lake, and after trial, error and a long, hard, meticulous process we made it happen. We were able to open our shack in our RosePark Community, right at Sutherlands Parking lot. We are always very excited and happy to serve our customers, and it makes us even happier when we get compliments on how delicious our shaved ice is and how they never tried anything like it before.
+          “Calories don’t count when it’s Just-A-Craving”
+          </p>
+        </div>
+      </div>
+
+      <%= link_to "https://www.taylorsvillecityjournal.com/2022/09/08/411335/friends-fulfill-a-lifelong-dream-by-opening-restaurant", target: "_blank" do %>
+        <%= image_tag "news1.png", class: "w-50 rounded-lg shadow-lg hidden lg:block" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>

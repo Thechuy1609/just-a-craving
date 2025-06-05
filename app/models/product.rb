@@ -7,5 +7,4 @@ class Product < ApplicationRecord
  def self.category_select_options
   categories.keys.map { |c| [ c.titleize, c ] }
  end
-
 end
