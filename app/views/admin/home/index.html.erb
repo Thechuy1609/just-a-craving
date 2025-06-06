@@ -1,67 +1,40 @@
-<%= content_for :title, "Menu" %>
-<div class="max-w-screen-xl mx-auto px-6 py-10">
-  <div class="flex justify-between items-center mb-10">
-    <h1 class="text-5xl font-extrabold text-red-500 drop-shadow-sm">Our Menu</h1>
-    <% if admin_signed_in? %>
-      <%= link_to "New Product", new_product_path, class: "bg-green-300 text-green-700 hover:bg-green-200 transition font-semibold py-3 px-5 rounded-md text-base shadow" %>
-    <% end %>
-  </div>
-
-  <% @products.categories.keys.each do |category| %>
-    <% products = @products.where(category: category) %>
-    <% next if products.empty? %>
-
-    <div class="mb-14">
-      <h2 class="text-3xl font-semibold mb-6 capitalize border-b border-gray-200 pb-2">
-        <%= category.humanize %>
-      </h2>
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-        <% products.each do |product| %>
-          <% if admin_signed_in? %>
-            <%= link_to edit_product_path(product), class: "block bg-white border border-gray-200 rounded-2xl shadow-md p-6 flex flex-col items-center hover:shadow-lg transition" do %>
-              <h3 class="text-2xl font-bold text-gray-800 text-center mb-4">
-                <%= product.title %>
-              </h3>
-
-              <% if product.product_picture.attached? %>
-                <div class="max-w-[200px] mb-4">
-                  <%= image_tag product.product_picture, class: "w-full h-auto object-cover" %>
-                </div>
-              <% end %>
-
-              <span class="text-base text-gray-600 text-center mb-4 px-2">
-                <%= product.ingredients %>
-              </span>
-
-              <div class="mt-auto pt-3">
-                <span class="inline-block text-sm px-4 py-1 bg-yellow-300 text-yellow-900 rounded-full uppercase text-center">
-                  <%= product.category.humanize %>
-                </span>
-              </div>
-            <% end %>
-          <% else %>
-            <div class="bg-white border border-gray-200 rounded-2xl shadow-md p-6 flex flex-col items-center  hover:shadow-xl transition">
-              <h3 class="text-2xl font-bold text-gray-800 text-center mb-4">
-                <%= product.title %>
-              </h3>
-              <% if product.product_picture.attached? %>
-                <div class="max-w-[200px] mb-4">
-                  <%= image_tag product.product_picture, class: "w-full h-auto object-cover" %>
-                </div>
-              <% end %>
-              <span class="text-base text-gray-600 text-center mb-4 px-2">
-                <%= product.ingredients %>
-              </span>
-
-              <div class="mt-auto pt-3">
-                <span class="inline-block text-sm px-4 py-1 bg-yellow-300 text-yellow-900 rounded-full uppercase text-center">
-                  <%= product.category.humanize %>
-                </span>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
+<%= content_for :title, "Dashboard" %>
+<div class="mt-18 px-4 sm:px-6 lg:px-8">
+  <h1 class="text-gray-700 font-lg text-center mx-auto font-semibold">Dashboard</h1>
+  <div class="px-4 sm:px-6 lg:px-8">
+    <div class="mt-8 flow-root">
+      <div class="overflow-x-auto">
+        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+          <table class="min-w-full divide-y divide-gray-700">
+            <tbody class="divide-y divide-gray-700">
+              <tr>
+                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                  <%= link_to "Products", admin_products_path %>
+                </td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> <%= Product.count %> </td>
+                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                </td>
+              </tr>
+              <tr>
+                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                  <%= link_to "Messages", admin_messages_path %>
+                </td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> <%= Message.count %> </td>
+                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                </td>
+              </tr>
+              <tr>
+                <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">
+                  <%= link_to "Locations", admin_locations_path %>
+                </td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"> <%= Location.count %></td>
+                <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  <% end %>
+  </div>
 </div>

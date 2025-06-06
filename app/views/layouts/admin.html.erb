@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html class="h-full">
   <head>
-<%= render "layouts/head_content" %>
+    <%= render "layouts/head_content" %>
   </head>
-  <body class="min-h-screen flex flex-col bg-gradient-to-b from-gray-50/60 to-white">
+  <body class="h-full">
     <%= render "layouts/sidebar" %>
+    <div class="lg:pl-72">
     <%= render "layouts/flash_messages" %>
-    <main class="flex-1">
       <%= yield %>
-    </main>
+    </div>
   </body>
 </html>

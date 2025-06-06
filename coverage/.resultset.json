@@ -1,0 +1,84 @@
+{
+  "Minitest": {
+    "coverage": {
+      "/Users/alessandro/Development/just-a-craving/test/controllers/home_controller_test.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alessandro/Development/just-a-craving/test/controllers/locations_controller_test.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alessandro/Development/just-a-craving/test/controllers/products_controller_test.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alessandro/Development/just-a-craving/test/models/admin_test.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alessandro/Development/just-a-craving/test/models/location_test.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alessandro/Development/just-a-craving/test/models/message_test.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/alessandro/Development/just-a-craving/test/models/product_test.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1749246997
+  }
+}

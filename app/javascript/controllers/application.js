@@ -6,7 +6,7 @@ const application = Application.start()
 application.debug = false
 window.Stimulus   = application
 
- // Upload
+ // Upload pictures
 var uploadInput = document.getElementById("upload-picture");
 var uploadIcon = document.getElementById("upload-icon");
 var upload = document.getElementById("upload");
@@ -26,7 +26,6 @@ if (uploadInput) {
     const adminNavMenu = document.getElementById("navigation-mobile-menu");
     const adminNavSidebar = document.getElementById("navigation-mobile");
 if (adminNavMenu) {
-      // Hamburger button
       const adminNavMenuBtn = adminNavMenu.querySelector("button");
       adminNavMenuBtn.addEventListener("click", function () {
         adminNavSidebar.classList.toggle("hidden");
