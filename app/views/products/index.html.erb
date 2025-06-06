@@ -1,7 +1,7 @@
 <%= content_for :title, "Menu" %>
 <div class="max-w-screen-xl mx-auto px-6 py-10">
   <div class="flex justify-between items-center mb-10">
-    <h1 class="text-5xl font-extrabold text-red-500 drop-shadow-sm tracking-wide">Our Menu</h1>
+    <h1 class="text-5xl font-extrabold text-red-500 drop-shadow-sm">Our Menu</h1>
     <% if admin_signed_in? %>
       <%= link_to "New Product", new_product_path, class: "bg-green-300 text-green-700 hover:bg-green-200 transition font-semibold py-3 px-5 rounded-md text-base shadow" %>
     <% end %>
