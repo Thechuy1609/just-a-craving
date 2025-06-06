@@ -9,7 +9,7 @@ class ContactController < ApplicationController
   end
 
   def create
-     @message = Message.new(message_params)
+    @message = Message.new(message_params)
     if @message.save
       flash[:notice] = "Message sent succesfully!"
       redirect_to root_path

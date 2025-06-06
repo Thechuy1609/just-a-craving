@@ -22,4 +22,22 @@ if (uploadInput) {
       });
 }
 
+// Admin Nav
+    const adminNavMenu = document.getElementById("navigation-mobile-menu");
+    const adminNavSidebar = document.getElementById("navigation-mobile");
+if (adminNavMenu) {
+      // Hamburger button
+      const adminNavMenuBtn = adminNavMenu.querySelector("button");
+      adminNavMenuBtn.addEventListener("click", function () {
+        adminNavSidebar.classList.toggle("hidden");
+        adminNavMenu.classList.toggle("hidden");
+      });
+
+      const adminNavSidebarCloseBtn = adminNavSidebar.querySelector("button");
+      adminNavSidebarCloseBtn.addEventListener("click", function () {
+        adminNavSidebar.classList.toggle("hidden");
+        adminNavMenu.classList.toggle("hidden");
+      });
+}
+
 export { application }

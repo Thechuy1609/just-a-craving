@@ -1,0 +1,67 @@
+<%= content_for :title, "Menu" %>
+<div class="max-w-screen-xl mx-auto px-6 py-10">
+  <div class="flex justify-between items-center mb-10">
+    <h1 class="text-5xl font-extrabold text-red-500 drop-shadow-sm">Our Menu</h1>
+    <% if admin_signed_in? %>
+      <%= link_to "New Product", new_product_path, class: "bg-green-300 text-green-700 hover:bg-green-200 transition font-semibold py-3 px-5 rounded-md text-base shadow" %>
+    <% end %>
+  </div>
+
+  <% @products.categories.keys.each do |category| %>
+    <% products = @products.where(category: category) %>
+    <% next if products.empty? %>
+
+    <div class="mb-14">
+      <h2 class="text-3xl font-semibold mb-6 capitalize border-b border-gray-200 pb-2">
+        <%= category.humanize %>
+      </h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <% products.each do |product| %>
+          <% if admin_signed_in? %>
+            <%= link_to edit_product_path(product), class: "block bg-white border border-gray-200 rounded-2xl shadow-md p-6 flex flex-col items-center hover:shadow-lg transition" do %>
+              <h3 class="text-2xl font-bold text-gray-800 text-center mb-4">
+                <%= product.title %>
+              </h3>
+
+              <% if product.product_picture.attached? %>
+                <div class="max-w-[200px] mb-4">
+                  <%= image_tag product.product_picture, class: "w-full h-auto object-cover" %>
+                </div>
+              <% end %>
+
+              <span class="text-base text-gray-600 text-center mb-4 px-2">
+                <%= product.ingredients %>
+              </span>
+
+              <div class="mt-auto pt-3">
+                <span class="inline-block text-sm px-4 py-1 bg-yellow-300 text-yellow-900 rounded-full uppercase text-center">
+                  <%= product.category.humanize %>
+                </span>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="bg-white border border-gray-200 rounded-2xl shadow-md p-6 flex flex-col items-center  hover:shadow-xl transition">
+              <h3 class="text-2xl font-bold text-gray-800 text-center mb-4">
+                <%= product.title %>
+              </h3>
+              <% if product.product_picture.attached? %>
+                <div class="max-w-[200px] mb-4">
+                  <%= image_tag product.product_picture, class: "w-full h-auto object-cover" %>
+                </div>
+              <% end %>
+              <span class="text-base text-gray-600 text-center mb-4 px-2">
+                <%= product.ingredients %>
+              </span>
+
+              <div class="mt-auto pt-3">
+                <span class="inline-block text-sm px-4 py-1 bg-yellow-300 text-yellow-900 rounded-full uppercase text-center">
+                  <%= product.category.humanize %>
+                </span>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

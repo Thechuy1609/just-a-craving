@@ -17,7 +17,7 @@
       <%if admin_signed_in?%>
         <%= link_to "Contact Us", contact_index_path, class: "block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100" %>
           <div class="z-10">
-        <%= link_to "Admin Panel", "#", class: "block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100"%>
+        <%= link_to "Admin Panel", admin_home_index_path, class: "block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100"%>
           </div>
       <% else %>
         <%= link_to "Contact Us", new_contact_path, class: "block px-4 py-2 font-semibold text-gray-700 hover:bg-gray-100" %>
